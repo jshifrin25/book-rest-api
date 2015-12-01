@@ -1,0 +1,22 @@
+{
+  "name": "book-rest-api",
+  "version": "1.0.0",
+  "description": "A simple rest api for CRUD operations on a book",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jshifrin25/book-rest-api.git"
+  },
+  "author": "Joshua Shifrin",
+  "license": "GPL-2.0",
+  "bugs": {
+    "url": "https://github.com/jshifrin25/book-rest-api/issues"
+  },
+  "homepage": "https://github.com/jshifrin25/book-rest-api#readme",
+  "dependencies": {
+    "express": "^4.13.3"
+  }
+}
