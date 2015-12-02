@@ -11,5 +11,5 @@ module.exports = function () {
         }
     });
     var db = mongoose.connection;
-    return mongoose;
+    return db;
 }();

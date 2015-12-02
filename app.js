@@ -5,7 +5,9 @@ var app = express();
 var bodyParser = require('body-parser');
 
 var mongoose = require('./utils/db.js');
-var Book = require('./models/Book.js');
+var bookSchema = require('./models/BookSchema.js');
+var Book = require('./books/Book');
+var adapter = require('./utils/mongoAdapter');
 
 app.use(bodyParser.urlencoded({
     extended: true
@@ -16,8 +18,7 @@ app.get('/', function (req, res) {
 });
 
 app.post('/book', function (req, res, next) {
-    var book = new Book(req.body);
-    book.save();
+    
     res.json(req.body);
 });
 

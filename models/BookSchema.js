@@ -6,7 +6,8 @@ var bookSchema = new Schema({
     author: String,
     published: Date,
     pages: Number,
-    summary: String
+    summary: String,
+    category: String
 });
 
 module.exports = bookSchema;
