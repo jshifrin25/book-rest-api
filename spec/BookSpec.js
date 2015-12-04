@@ -3,7 +3,7 @@ describe('Book', function () {
     var Book = require('../books/Book'),
         testBook;
     beforeEach(function () {
-        testBook = new Book.Book('A Book', 'An Author', new Date(), 300, 'Summary of a book', 'Testing');
+        testBook = new Book('A Book', 'An Author', new Date(), 300, 'Summary of a book', 'Testing');
     });
     it('should create a new book object', function () {
         expect(testBook).toBeDefined();

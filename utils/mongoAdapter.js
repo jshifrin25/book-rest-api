@@ -1,11 +1,33 @@
-var mongoose = require('mongoose');
-module.exports = function (book, schema) {
+var mongoose = require('mongoose'),
+    bookSchema = require('../models/BookSchema');
+module.exports = function () {
     //CRUD functions
-    var Model = mongoose.model('book', schema);
+    var Book = mongoose.model('book', bookSchema);
     var Adapter = {
-        createBook: function () {
-            var Book = new Model(book.toBookObj());
+        createBook: function (bookObj) {
+            var book = new Book(bookObj);
             book.save();
+        },
+        queryAll: function () {
+            var query = Book.find();
+            return query
+                .sort({
+                    title: 'asc'
+                })
+                .exec()
+                .then(function (books) {
+                    return books;
+                });
+        },
+        findBook: function (id) {
+            return Book.findById(id)
+                .exec();
+        },
+        removeBook: function (id) {
+            return Book.findByIdAndRemove(id);
+        },
+        updateBook: function (id, update) {
+            return Book.findByIdAndUpdate(id, update);
         }
     };
 

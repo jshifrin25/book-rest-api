@@ -1,4 +1,4 @@
-exports.Book = function (title, author, published, pages, summary, category) {
+module.exports = function (title, author, published, pages, summary, category) {
 
     var book = {
         title: title,
@@ -45,6 +45,7 @@ exports.Book = function (title, author, published, pages, summary, category) {
             if (typeof value === "number") {
                 book.pages = value;
             } else {
+                console.log(field);
                 throw new TypeError("Needs to use a number object");
             }
             break;
@@ -83,10 +84,13 @@ exports.Book = function (title, author, published, pages, summary, category) {
     }
 };
 
-exports.parseBook = function (bookObj) {
-    book = new this.Book();
+module.exports.parseBook = function (bookObj) {
+    var Book = this;
+    book = new Book();
     for (var key in bookObj) {
-        book.set(key, bookObj[key]);
+        if (book.hasOwnProperty(key) && bookObj[key] !== undefined) {
+            book.set(key, bookObj[key]);
+        }
     }
     return book;
 };
