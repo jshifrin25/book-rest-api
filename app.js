@@ -15,6 +15,10 @@ app.use(bodyParser.urlencoded({
 })); // for parsing application/x-www-form-urlencoded
 app.use(bodyParser.json());
 
+app.use(express.static('views'));
+app.use('/js', express.static('node_modules/angular'));
+app.use('/css', express.static('node_modules/bootstrap/dist/css'));
+
 app.use('/', router);
 
 module.exports = app;

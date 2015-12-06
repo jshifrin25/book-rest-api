@@ -1,4 +1,5 @@
-var router = require('express').Router(),
+var express = require('express'),
+    router = express.Router(),
     Adapter = require('../utils/mongoAdapter'),
     bookAdapter = new Adapter();
 
