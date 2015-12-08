@@ -9,14 +9,14 @@
         });
     });
     angular.module('bookform', [])
-        .controller('BookFormController', ['$scope', '$http',
-                 function ($scope, $http) {
+        .controller('BookFormController', ['$scope', '$http', '$timeout',
+                 function ($scope, $http, $timeout) {
                 $scope.successMessage = '',
                     $scope.data = {
                         title: 'Book Title',
                         author: 'Book Author',
                         pages: 0,
-                        published: 'yyyy-dd-MM',
+                        published: new Date(2013, 4, 18),
                         category: 'Book Category',
                         summary: ''
                     },
@@ -24,14 +24,16 @@
                         $http.post('/book', $scope.data).then(function (response) {
                             $scope.successMessage = 'Your Book was Successfully Added';
                             $scope.data = {
-                                title: 'Book Title',
-                                author: 'Book Author',
+                                title: '',
+                                author: '',
                                 pages: 0,
-                                published: 'yyyy-dd-MM',
-                                category: 'Book Category',
+                                published: new Date(2013, 4, 18),
+                                category: '',
                                 summary: ''
                             };
-                            console.log('Successful');
+                            $timeout(function () {
+                                $scope.successMessage = '';
+                            }, 3000);
                         }, function (error) {
                             console.error(error);
                         });

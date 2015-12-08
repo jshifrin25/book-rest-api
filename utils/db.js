@@ -3,7 +3,7 @@ module.exports = function () {
         bookSchema = require('../models/BookSchema.js'),
         Book;
     mongoose.Promise = require('bluebird');
-    mongoose.connect('mongodb://localhost/local', function (err) {
+    mongoose.connect('mongodb://127.0.0.1/local', function (err) {
         if (err) {
             console.error(err);
         } else {
